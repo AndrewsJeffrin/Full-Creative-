@@ -2,15 +2,16 @@ import java.util.Arrays;
 
 
 
-abstract class MergeSortAlgo{
-	abstract void merge(int array[], int leftarray, int mid, int rightarray);
+interface MergeSortAlgo{
+	 public void merge(int array[], int leftarray, int mid, int rightarray);
 
-	abstract void mergeSort(int array[], int left, int right);
+	 public void mergeSort(int array[], int left, int right);
 }
 
-class MergeSort extends MergeSortAlgo{
 
-  void merge(int array[], int leftarray, int mid, int rightarray) {
+class MergeSort implements MergeSortAlgo{
+
+  public void merge(int array[], int leftarray, int mid, int rightarray) {
 
     int n1 = mid - leftarray + 1;
     int n2 = rightarray - mid;
@@ -55,7 +56,7 @@ class MergeSort extends MergeSortAlgo{
     }
   }
 
- void mergeSort(int array[], int left, int right) {
+  public void mergeSort(int array[], int left, int right) {
     if (left < right) {
 
       int midpoint = (left + right) / 2;
@@ -77,7 +78,7 @@ class Main{
 
     System.out.println(Arrays.toString(array));
 
-    MergeSortAlgo ob = new MergeSort();
+    MergeSort ob = new MergeSort();
 
     ob.mergeSort(array, 0, array.length - 1);
 
